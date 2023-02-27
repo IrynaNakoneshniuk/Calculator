@@ -1,19 +1,10 @@
 import 'package:flutter/material.dart';
 import 'buttons.dart';
 import "package:math_expressions/math_expressions.dart";
+import 'MyApp.dart';
 
 void main() {
   runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomePage(),
-    ); // MaterialApp
-  }
 }
 
 class HomePage extends StatefulWidget {
@@ -24,8 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   var userInput = '';
   var answer = '';
-
-  // Array of button
   final List<String> buttons = [
     'C',
     '+/-',
@@ -54,7 +43,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: new AppBar(
         title: new Text("Calculator"),
-      ), //AppBar
+      ),
       backgroundColor: Colors.white38,
       body: Column(
         children: <Widget>[
@@ -106,18 +95,13 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.blue[50],
                         textColor: Colors.black,
                       );
-                    }
-
-                    // +/- button
-                    else if (index == 1) {
+                    } else if (index == 1) {
                       return MyButton(
                         buttonText: buttons[index],
                         color: Colors.blue[50],
                         textColor: Colors.black,
                       );
-                    }
-                    // % Button
-                    else if (index == 2) {
+                    } else if (index == 2) {
                       return MyButton(
                         buttontapped: () {
                           setState(() {
@@ -128,9 +112,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.blue[50],
                         textColor: Colors.black,
                       );
-                    }
-                    // Delete Button
-                    else if (index == 3) {
+                    } else if (index == 3) {
                       return MyButton(
                         buttontapped: () {
                           setState(() {
@@ -142,9 +124,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.blue[50],
                         textColor: Colors.black,
                       );
-                    }
-                    // Equal_to Button
-                    else if (index == 18) {
+                    } else if (index == 18) {
                       return MyButton(
                         buttontapped: () {
                           setState(() {
@@ -155,10 +135,7 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.orange[700],
                         textColor: Colors.white,
                       );
-                    }
-
-                    //  other buttons
-                    else {
+                    } else {
                       return MyButton(
                         buttontapped: () {
                           setState(() {
@@ -174,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                             : Colors.black,
                       );
                     }
-                  }), // GridView.builder
+                  }),
             ),
           ),
         ],
@@ -189,7 +166,6 @@ class _HomePageState extends State<HomePage> {
     return false;
   }
 
-// function to calculate the input operation
   void equalPressed() {
     String finaluserinput = userInput;
     finaluserinput = userInput.replaceAll('x', '*');
